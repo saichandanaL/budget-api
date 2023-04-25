@@ -52,6 +52,10 @@ object Build : BuildType({
             name = "dotnet build"
             scriptContent = "dotnet build -o ./build-output"
         }
+        script {
+            name = "dotnet publish"
+            scriptContent = "dotnet publish -o ./build-publish"
+        }
     }
 
     triggers {
