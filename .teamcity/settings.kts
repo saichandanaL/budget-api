@@ -1,6 +1,7 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.nuGetInstaller
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 /*
@@ -46,6 +47,10 @@ object Build : BuildType({
             projects = "budget-api.sln"
             updatePackages = updateParams {
             }
+        }
+        script {
+            name = "dotnet build"
+            scriptContent = "dotnet build -o ./build-output"
         }
     }
 
