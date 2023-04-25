@@ -1,7 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
-import jetbrains.buildServer.configs.kotlin.buildSteps.DotnetMsBuildStep
-import jetbrains.buildServer.configs.kotlin.buildSteps.dotnetMsBuild
 import jetbrains.buildServer.configs.kotlin.buildSteps.nuGetInstaller
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
@@ -42,12 +40,6 @@ object Build : BuildType({
     }
 
     steps {
-        dotnetMsBuild {
-            projects = "budget-api.sln"
-            version = DotnetMsBuildStep.MSBuildVersion.V17
-            args = "-restore -noLogo"
-            sdk = "6"
-        }
         nuGetInstaller {
             toolPath = "%teamcity.tool.NuGet.CommandLine.DEFAULT%"
             projects = "budget-api.sln"
