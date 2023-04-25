@@ -1,7 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.DotnetMsBuildStep
-import jetbrains.buildServer.configs.kotlin.buildSteps.dotnetBuild
 import jetbrains.buildServer.configs.kotlin.buildSteps.dotnetMsBuild
 import jetbrains.buildServer.configs.kotlin.buildSteps.nuGetInstaller
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
@@ -43,10 +42,6 @@ object Build : BuildType({
     }
 
     steps {
-        dotnetBuild {
-            projects = "budget-api.sln"
-            sdk = "6"
-        }
         dotnetMsBuild {
             projects = "budget-api.sln"
             version = DotnetMsBuildStep.MSBuildVersion.V17
