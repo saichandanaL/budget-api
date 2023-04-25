@@ -36,7 +36,10 @@ project {
 object Build : BuildType({
     name = "Build"
 
-    artifactRules = """C:\BuildAgent\work\52d078e40815c8c7\build-output\* => *"""
+    artifactRules = """
+        C:\BuildAgent\work\52d078e40815c8c7\build-output\* => build-output
+        +: C:\BuildAgent\work\52d078e40815c8c7\publish-output\* => publish-output
+    """.trimIndent()
 
     vcs {
         root(DslContext.settingsRoot)
