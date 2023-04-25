@@ -38,7 +38,7 @@ object Build : BuildType({
 
     artifactRules = """
         C:\BuildAgent\work\52d078e40815c8c7\build-output\* => build-output
-        +: C:\BuildAgent\work\52d078e40815c8c7\publish-output\* => publish-output
+        +:C:\BuildAgent\work\52d078e40815c8c7\publish-output\* => publish-output
     """.trimIndent()
 
     vcs {
