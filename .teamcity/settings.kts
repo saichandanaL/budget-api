@@ -1,5 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
+import jetbrains.buildServer.configs.kotlin.buildSteps.nuGetInstaller
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 /*
@@ -36,6 +37,16 @@ object Build : BuildType({
 
     vcs {
         root(DslContext.settingsRoot)
+    }
+
+    steps {
+        nuGetInstaller {
+            name = "restore project dependencies"
+            toolPath = "%teamcity.tool.NuGet.CommandLine.DEFAULT%"
+            projects = "budget-api.sln"
+            updatePackages = updateParams {
+            }
+        }
     }
 
     triggers {
