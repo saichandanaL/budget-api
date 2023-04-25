@@ -36,7 +36,7 @@ project {
 object Build : BuildType({
     name = "Build"
 
-    artifactRules = "*"
+    artifactRules = """C:\BuildAgent\work\52d078e40815c8c7\* => *"""
 
     vcs {
         root(DslContext.settingsRoot)
