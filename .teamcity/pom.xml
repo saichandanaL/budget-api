@@ -37,6 +37,7 @@
   </pluginRepositories>
 
   <build>
+    <defaultGoal>install</defaultGoal>
     <sourceDirectory>${basedir}</sourceDirectory>
     <plugins>
       <plugin>
